@@ -33,7 +33,7 @@ public static class HostExtensions
 
             command.CommandText = @"insert into Coupon(ProductName, Description, Amount)
                                     values
-                                        ('Iphone X', 'Iphone Discount', 150),
+                                        ('IPhone X', 'IPhone Discount', 150),
                                         ('Samsung 10', 'Samsung Discount', 100)";
             command.ExecuteNonQuery();
 
