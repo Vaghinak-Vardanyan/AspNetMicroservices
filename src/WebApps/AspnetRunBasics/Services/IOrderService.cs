@@ -1,6 +1,4 @@
 ﻿using AspnetRunBasics.Model;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace AspnetRunBasics.Services;
 

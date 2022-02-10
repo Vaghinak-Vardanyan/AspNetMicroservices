@@ -1,5 +1,4 @@
 ﻿using AspnetRunBasics.Model;
-using System.Threading.Tasks;
 
 namespace AspnetRunBasics.Services;
 

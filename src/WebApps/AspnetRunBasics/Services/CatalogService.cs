@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using AspnetRunBasics.Extensions;
 
 namespace AspnetRunBasics.Services;
 
@@ -14,23 +11,30 @@ public class CatalogService : ICatalogService
         _client = client ?? throw new ArgumentNullException(nameof(client));
     }
 
-    public Task<ProductModel> CreateProduct(ProductModel model)
+    public async Task<IEnumerable<ProductModel>> GetProducts()
     {
-        throw new System.NotImplementedException();
+        var response = await _client.GetAsync("/Catalog");
+        return await response.ReadContentAs<IEnumerable<ProductModel>>();
     }
 
-    public Task<ProductModel> GetProduct(string id)
+    public async Task<ProductModel> GetProduct(string id)
     {
-        throw new System.NotImplementedException();
+        var response = await _client.GetAsync($"/Catalog/{id}");
+        return await response.ReadContentAs<ProductModel>();
     }
 
-    public Task<IEnumerable<ProductModel>> GetProductByCategory(string category)
+    public async Task<IEnumerable<ProductModel>> GetProductByCategory(string category)
     {
-        throw new System.NotImplementedException();
+        var response = await _client.GetAsync($"/Catalog/GetProductByCategory/{category}");
+        return await response.ReadContentAs<IEnumerable<ProductModel>>();
     }
 
-    public Task<IEnumerable<ProductModel>> GetProducts()
+    public async Task<ProductModel> CreateProduct(ProductModel model)
     {
-        throw new System.NotImplementedException();
+        var response = await _client.PostAsJson($"/Catalog", model);
+        if (!response.IsSuccessStatusCode)
+            throw new Exception("Something went wrong when calling catalog api.");
+            
+        return await response.ReadContentAs<ProductModel>();
     }
 }
