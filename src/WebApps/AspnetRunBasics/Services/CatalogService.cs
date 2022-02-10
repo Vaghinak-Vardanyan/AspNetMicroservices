@@ -1,4 +1,5 @@
 ﻿using AspnetRunBasics.Extensions;
+using AspnetRunBasics.Model;
 
 namespace AspnetRunBasics.Services;
 

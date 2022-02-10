@@ -1,4 +1,6 @@
-﻿namespace AspnetRunBasics.Services;
+﻿using AspnetRunBasics.Model;
+
+namespace AspnetRunBasics.Services;
 
 public interface ICatalogService
 {
