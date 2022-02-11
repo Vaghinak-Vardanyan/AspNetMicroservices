@@ -1,2 +1,2 @@
 # AspNetMicroservices
-Simple application which based on microservices and uses various technologies
+Simple application which is based on microservices and uses various technologies
