@@ -1,4 +1,4 @@
-﻿using AspnetRunBasics.Model;
+﻿using AspnetRunBasics.Models;
 using AspnetRunBasics.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -39,6 +39,8 @@ namespace AspnetRunBasics.Pages
                 Quantity = 1,
                 Color = "Black"
             });
+
+            await _basketService.UpdateBasket(basket);
 
             return RedirectToPage("Cart");
         }
